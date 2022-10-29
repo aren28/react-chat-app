@@ -12,8 +12,10 @@ export const Container = styled.div`
 export const Screen = styled.div`
     background: linear-gradient(90deg, #5D54A4, #7C78B8);		
 	position: relative;	
-	height: 600px;
-	width: 360px;	
+	max-height: 600px;
+	height: 100%;
+	max-width: 360px;
+	width: 100%;
 	box-shadow: 0px 0px 24px #5C5696;
 `;
 
@@ -127,6 +129,13 @@ export const Screen_Background = styled.div`
 export const Screen_Background_Shape = styled.div`
     transform: rotate(45deg);
 	position: absolute;
+	@media (max-width:500px){
+		height: 390px;
+		width: 82px;
+		background: linear-gradient(270deg,#5D54A4,#6A679E);
+		top: 77px;
+		right: 86px;
+	}
 `;
 
 export const Screen_Background_Shape1 = styled(Screen_Background_Shape)`
@@ -154,6 +163,13 @@ export const Screen_Background_Shape3 = styled(Screen_Background_Shape)`
 	top: -24px;
 	right: 0;	
 	border-radius: 32px;
+	@media (max-width:500px){
+		height: 306px;
+		width: 82px;
+		background: linear-gradient(270deg,#5D54A4,#6A679E);
+		top: 128px;
+		right: 86px;
+	}
 `;
 
 export const Screen_Background_Shape4 = styled(Screen_Background_Shape)`
@@ -163,4 +179,12 @@ export const Screen_Background_Shape4 = styled(Screen_Background_Shape)`
 	top: 420px;
 	right: 50px;	
 	border-radius: 60px;
+	@media (max-width:500px){
+	height: 399px;
+    width: 131px;
+    background: #7E7BB9;
+    top: 420px;
+    right: 127px;
+    border-radius: 60px;
+	}
 `;
