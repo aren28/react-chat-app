@@ -1,6 +1,6 @@
 import React from "react";
-import { useState , useRef} from "react";
-import { Route , Routes , Link} from "react-router-dom";
+import { useState , useRef, createContext} from "react";
+import { useNavigate } from "react-router-dom";
 import { 
 Container, 
 Screen,
@@ -21,21 +21,21 @@ Screen_Background_Shape3,
 Screen_Background_Shape4
 } from "./LoginStyle"
 
-import App from "../Components/App"
+export const UserInfo = createContext();
 
 const Login = () =>{
 
-    const [username,setUsername] = useState('');
-    const [password,setPassword] = useState('');
-    const [auth,setAuth] = useState(false);
+    const history = useNavigate();
 
     const getUserInfo = useRef(null);
     const getPasswordInfo = useRef(null);
 
     const handelSubmit = () => {
-        setUsername(getUserInfo.current.value);
-        setPassword(getPasswordInfo.current.value);
-        setAuth(true);
+        const UserUser = getUserInfo.current.value;
+        const PassPass = getPasswordInfo.current.value;
+        localStorage.setItem('username', JSON.stringify(UserUser));
+        localStorage.setItem('password', JSON.stringify(PassPass));
+        history("/app");
     }
 
     return(
@@ -76,10 +76,6 @@ const Login = () =>{
                     </Screen_Background>
                 </Screen>
             </Container>
-            {auth ? <App username={username} password={password} />:console.log("error auth")}
-            {/* <Routes>
-                <Route path="/app" element={<App />}/>
-            </Routes> */}
         </React.Fragment>
     );
 }
